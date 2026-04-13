@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://yfl31i4okyng"]
+
+[ext_resource type="PackedScene" uid="uid://dpyip8k15fp3q" path="res://Escenas/Personajes/virtual_guy.tscn" id="1_m2ho7"]
+[ext_resource type="PackedScene" uid="uid://bp5crs7c5kn45" path="res://Escenas/Escenarios/PlayerInfo.tscn" id="1_ti0p8"]
+[ext_resource type="PackedScene" uid="uid://bri566k473ljw" path="res://Escenas/Escenarios/Escenario_1.tscn" id="2_m2ho7"]
+[ext_resource type="PackedScene" uid="uid://0efdipofhckf" path="res://Escenas/Fondos/Background.tscn" id="3_kdu8l"]
+[ext_resource type="PackedScene" uid="uid://ciuheb8xvwy8i" path="res://Escenas/Escenarios/movingPlatform_1.tscn" id="4_rw0ga"]
+[ext_resource type="PackedScene" uid="uid://g25hwnaqv54b" path="res://Escenas/Escenarios/Enemigos/Sierra.tscn" id="5_6w47b"]
+[ext_resource type="PackedScene" uid="uid://cqljyufntj10p" path="res://Escenas/Escenarios/Trampolin.tscn" id="6_tccjb"]
+[ext_resource type="PackedScene" uid="uid://fiqssvboj7fb" path="res://Escenas/Escenarios/Enemigos/spike_ball.tscn" id="7_hpnao"]
+[ext_resource type="PackedScene" uid="uid://dwu3b37uap01f" path="res://Escenas/Escenarios/fruit.tscn" id="8_bsgtc"]
+[ext_resource type="PackedScene" uid="uid://cpuh2td0c88fv" path="res://Escenas/Escenarios/Portal.tscn" id="10_iw5ls"]
+
+[sub_resource type="Curve2D" id="Curve2D_rw0ga"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1462, 230, 0, 0, 0, 0, 1817.0532, 230)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_rw0ga"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6w47b"]
+resource_name = "regular_move"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tccjb"]
+_data = {
+&"RESET": SubResource("Animation_rw0ga"),
+&"regular_move": SubResource("Animation_6w47b")
+}
+
+[node name="Node2D" type="Node2D" unique_id=98405551]
+
+[node name="PlayerInfo" parent="." unique_id=126177048 instance=ExtResource("1_ti0p8")]
+
+[node name="virtual_guy" parent="." unique_id=783472880 instance=ExtResource("1_m2ho7")]
+position = Vector2(4073, 236)
+
+[node name="TileMapLayer" parent="." unique_id=1256577616 instance=ExtResource("2_m2ho7")]
+
+[node name="ParallaxBackground" parent="." unique_id=237097577 instance=ExtResource("3_kdu8l")]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=56268183]
+position = Vector2(-449.01996, 0)
+scale = Vector2(1.2448837, 1)
+curve = SubResource("Curve2D_rw0ga")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=938825274]
+position = Vector2(1462, 230)
+rotates = false
+loop = false
+
+[node name="AnimatableBody2D" parent="Path2D/PathFollow2D" unique_id=1279666419 instance=ExtResource("4_rw0ga")]
+scale = Vector2(0.8032879, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D" unique_id=1481948997]
+libraries/ = SubResource("AnimationLibrary_tccjb")
+autoplay = &"regular_move"
+
+[node name="Sierra" parent="." unique_id=1579110547 instance=ExtResource("5_6w47b")]
+position = Vector2(1916, 424)
+
+[node name="Trampoline" parent="." unique_id=1846846161 instance=ExtResource("6_tccjb")]
+position = Vector2(2380, 526)
+
+[node name="Bola de pinchos" parent="." unique_id=1644515871 instance=ExtResource("7_hpnao")]
+position = Vector2(2735, 365)
+
+[node name="Bola de pinchos2" parent="." unique_id=1991111888 instance=ExtResource("7_hpnao")]
+position = Vector2(2879, 332)
+
+[node name="Bola de pinchos3" parent="." unique_id=83511843 instance=ExtResource("7_hpnao")]
+position = Vector2(3185, 400)
+
+[node name="Bola de pinchos4" parent="." unique_id=765264031 instance=ExtResource("7_hpnao")]
+position = Vector2(3441, 367)
+
+[node name="fruit" parent="." unique_id=967174875 instance=ExtResource("8_bsgtc")]
+position = Vector2(2436, 441)
+
+[node name="fruit2" parent="." unique_id=1364282813 instance=ExtResource("8_bsgtc")]
+position = Vector2(2527, 442)
+fruitType = "banana"
+
+[node name="SpikeBall" parent="." unique_id=155057626 instance=ExtResource("7_hpnao")]
+position = Vector2(4015, 383)
+
+[node name="portal" parent="." unique_id=2050838179 instance=ExtResource("10_iw5ls")]
+position = Vector2(4178, 208)
+
+[node name="portal2" parent="." unique_id=98502170 instance=ExtResource("10_iw5ls")]
+position = Vector2(4496, 527)

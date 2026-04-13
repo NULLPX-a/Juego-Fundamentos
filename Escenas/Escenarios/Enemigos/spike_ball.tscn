@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://fiqssvboj7fb"]
+
+[ext_resource type="Script" uid="uid://be0fi012vpdjx" path="res://Escenas/Escenarios/Enemigos/bola_de_pinchos.gd" id="1_1df1h"]
+[ext_resource type="Texture2D" uid="uid://3flb8u1ad8wj" path="res://Assets/Traps/Spiked Ball/Spiked Ball.png" id="2_1df1h"]
+[ext_resource type="PackedScene" uid="uid://b7lplqrn3ityr" path="res://Escenas/Escenarios/Enemigos/one_chain.tscn" id="2_h4vb8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h4vb8"]
+radius = 26.0
+
+[sub_resource type="Animation" id="Animation_h4vb8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bvq1h"]
+resource_name = "regular_move"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3w0f"]
+_data = {
+&"RESET": SubResource("Animation_h4vb8"),
+&"regular_move": SubResource("Animation_bvq1h")
+}
+
+[node name="SpikeBall" type="Node2D" unique_id=1644515871]
+script = ExtResource("1_1df1h")
+
+[node name="OneChain" parent="." unique_id=885692984 instance=ExtResource("2_h4vb8")]
+
+[node name="SpikedBall" type="Sprite2D" parent="." unique_id=230083077]
+z_index = 1
+position = Vector2(0, 30)
+scale = Vector2(2, 2)
+texture = ExtResource("2_1df1h")
+
+[node name="Area_collision_with_map" type="Area2D" parent="SpikedBall" unique_id=1103366470]
+position = Vector2(0, -15)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikedBall/Area_collision_with_map" unique_id=1741141519]
+position = Vector2(1, 32)
+shape = SubResource("CircleShape2D_h4vb8")
+
+[node name="damage_zone" type="Area2D" parent="SpikedBall" unique_id=2098183417]
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikedBall/damage_zone" unique_id=782870722]
+position = Vector2(0.5, 1)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_h4vb8")
+
+[node name="raycast_floor_detection" type="RayCast2D" parent="." unique_id=1951813526]
+target_position = Vector2(0, 60)
+
+[node name="safeTime" type="Timer" parent="." unique_id=1608760975]
+wait_time = 2.0
+one_shot = true
+
+[node name="animation_rotation" type="AnimationPlayer" parent="." unique_id=943921491]
+libraries/ = SubResource("AnimationLibrary_u3w0f")
+
+[connection signal="body_entered" from="SpikedBall/Area_collision_with_map" to="." method="_on_area_collision_with_map_body_entered"]
+[connection signal="timeout" from="safeTime" to="." method="_on_safe_time_timeout"]

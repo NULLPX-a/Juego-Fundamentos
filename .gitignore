@@ -1,0 +1,29 @@
+Assets/20 Enemies.png
+
+# Godot-specific ignores
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+
+# Imported assets (if you want to force re-import on every machine)
+# Useful if you have large binary assets that shouldn't be in Git
+# *.import
+
+# Monado/C# specific (if using .NET version)
+.mono/
+bin/
+obj/
+*.sln
+*.csproj
+
+# Editor-specific and Local settings
+.fscache
+*.tmp
+android/
+ios/
+build/
+
+# System / OS files
+.DS_Store
+Thumbs.db

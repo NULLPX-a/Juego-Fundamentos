@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cpuh2td0c88fv"]
+
+[ext_resource type="Script" uid="uid://b1xsik05l5jb6" path="res://Escenas/Escenarios/portal.gd" id="1_i5eyr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ickxl"]
+size = Vector2(9, 25)
+
+[node name="portal" type="Node2D" unique_id=2050838179 groups=["portal"]]
+script = ExtResource("1_i5eyr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1150690280]
+offset_left = -18.0
+offset_top = -39.0
+offset_right = 16.0
+offset_bottom = 25.0
+color = Color(0.51995176, 0.34771395, 0.9561539, 1)
+
+[node name="area_teletransport" type="Area2D" parent="." unique_id=201435553]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_teletransport" unique_id=305997230]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_ickxl")
+
+[connection signal="area_entered" from="area_teletransport" to="." method="_on_area_teletransport_area_entered"]
