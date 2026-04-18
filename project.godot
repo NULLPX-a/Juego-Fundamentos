@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GeneralRules="*uid://bf2oej7k8egco"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+
 [global_group]
 
 wall_jump=""

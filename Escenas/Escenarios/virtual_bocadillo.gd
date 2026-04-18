@@ -1,19 +1,35 @@
 extends Sprite2D
 
-@export var texto:String = "":
+var _texto:String = ""
+var index:int = 0
+
+@export var texto:String:
 	set(value):
+		# 🔥 Reiniciar TODO para evitar bugs en siguientes diálogos
+		$Timer.stop()
+		$Timer_escondeB.stop()
+
+		_texto = value
 		visible = true
-		texto = value
+
+		$Label.text = ""
+		index = 0
+
 		$Timer.start()
-		
-var index = 0;
+	get:
+		return _texto
+
+
+func mostrar_texto(nuevo_texto:String):
+	texto = nuevo_texto
+
 
 func _on_timer_timeout() -> void:
-	if index >= texto.length():
-		$Timer_escondeB.start()
+	if index >= _texto.length():
 		$Timer.stop()
+		$Timer_escondeB.start()
 	else:
-		$Label.text = $Label.text + texto[index]
+		$Label.text += _texto[index]
 		index += 1
 
 

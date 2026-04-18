@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = GeneralRules.FrogJumpPower
+const JUMP_VELOCITY = -450
 var health = 100
 var fruitCount = 0
 var allow_animation:bool = false
@@ -13,10 +13,14 @@ var count_jumps: int = 0
 var double_jump: bool = false
 var ray_cast_dimesion = 10.5
 var direction
+var block_nija = false
 var stuck_on_wall : bool = false
 
 
 func _physics_process(delta: float) -> void:
+	
+	if block_nija: return;
+	
 	if is_on_floor():
 		#Esto es para ayudar a indicar que se reinicia el timer 
 		leaved_floor = false
