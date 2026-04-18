@@ -18,6 +18,14 @@ config/icon="res://icon.svg"
 [autoload]
 
 GeneralRules="*uid://bf2oej7k8egco"
+CambiarResolucion="*uid://mtnv2d7fteby"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=480
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 
 [display]
 
@@ -34,6 +42,7 @@ virtual=""
 
 2d_physics/layer_2="Enemigos"
 2d_physics/layer_3="enviroment"
+2d_physics/layer_4="Pinchos"
 2d_physics/layer_5="Player"
 
 [physics]
