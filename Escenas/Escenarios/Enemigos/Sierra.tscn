@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://qa50g3agc2hg" path="res://Assets/Traps/Saw/On (38x38).png" id="1_bn04a"]
 [ext_resource type="Script" uid="uid://5rt6cglbv8ai" path="res://Escenas/Escenarios/Enemigos/sierra.gd" id="1_lfsw3"]
+[ext_resource type="Script" uid="uid://duos545yjvfky" path="res://Escenas/Escenarios/Enemigos/Pinchos.gd" id="3_x8tnt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfsw3"]
 atlas = ExtResource("1_bn04a")
@@ -82,8 +83,8 @@ script = ExtResource("1_lfsw3")
 sprite_frames = SubResource("SpriteFrames_u47pi")
 animation = &"on"
 autoplay = "on"
-frame = 1
-frame_progress = 0.083129644
+frame = 7
+frame_progress = 0.16529566
 
 [node name="collision_with_floor" type="CollisionShape2D" parent="." unique_id=589160027]
 position = Vector2(0, -1.75)
@@ -102,3 +103,4 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_zone" unique_id=1199510039]
 shape = SubResource("CircleShape2D_lfsw3")
+script = ExtResource("3_x8tnt")

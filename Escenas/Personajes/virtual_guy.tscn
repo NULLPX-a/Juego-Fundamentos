@@ -478,7 +478,7 @@ script = ExtResource("1_msqbo")
 
 [node name="animaciones" type="AnimatedSprite2D" parent="." unique_id=231530499]
 sprite_frames = SubResource("SpriteFrames_4yg2y")
-animation = &"idle"
+animation = &"dissappear"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=556090110]
 position = Vector2(0, 3)
@@ -486,7 +486,6 @@ shape = SubResource("CapsuleShape2D_t1a1a")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1332002144]
 limit_top = 0
-limit_bottom = 648
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 editor_draw_limits = true
@@ -500,7 +499,7 @@ one_shot = true
 target_position = Vector2(11, 0)
 
 [node name="damage_detection" type="Area2D" parent="." unique_id=1907899392]
-collision_layer = 16
+collision_layer = 18
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_detection" unique_id=142770188]

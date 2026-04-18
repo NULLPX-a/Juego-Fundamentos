@@ -14,7 +14,11 @@ var double_jump: bool = false
 var ray_cast_dimesion = 10.5
 var direction
 var stuck_on_wall : bool = false
-
+var dead = false:
+	set(value):
+		dead=value
+		if value == true:
+			trigger_death()
 
 func _physics_process(delta: float) -> void:
 	if is_on_floor():
@@ -134,3 +138,10 @@ func _on_coyote_timer_timeout() -> void:
 func _on_damage_detection_area_shape_entered(_area_rid: RID, _area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	health -= 10
 	print(health)
+	
+
+
+
+func trigger_death() ->void:
+	
+	pass
