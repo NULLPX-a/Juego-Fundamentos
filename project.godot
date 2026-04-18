@@ -27,11 +27,6 @@ window/size/viewport_height=480
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
 
-[display]
-
-window/stretch/mode="viewport"
-window/stretch/aspect="ignore"
-
 [global_group]
 
 wall_jump=""
