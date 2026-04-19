@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GeneralRules="*uid://bf2oej7k8egco"
-CambiarResolucion="*uid://mtnv2d7fteby"
 
 [display]
 
@@ -32,6 +31,7 @@ window/stretch/aspect="ignore"
 wall_jump=""
 portal=""
 virtual=""
+player=""
 
 [layer_names]
 

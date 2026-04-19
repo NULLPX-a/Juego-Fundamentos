@@ -499,7 +499,7 @@ one_shot = true
 target_position = Vector2(11, 0)
 
 [node name="damage_detection" type="Area2D" parent="." unique_id=1907899392]
-collision_layer = 18
+collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_detection" unique_id=142770188]
@@ -517,3 +517,4 @@ debug_color = Color(0, 0, 0, 0.41960785)
 [connection signal="animation_finished" from="animaciones" to="." method="_on_animaciones_animation_finished"]
 [connection signal="timeout" from="coyote_timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="area_shape_entered" from="damage_detection" to="." method="_on_damage_detection_area_shape_entered"]
+[connection signal="body_entered" from="damage_detection" to="." method="_on_damage_detection_body_entered"]

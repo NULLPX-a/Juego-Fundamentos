@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -450
-var health = 100
+@export var health = 100
 var fruitCount = 0
 var allow_animation:bool = false
 var leaved_floor: bool = false
@@ -149,3 +149,8 @@ func _on_damage_detection_area_shape_entered(_area_rid: RID, _area: Area2D, _are
 func trigger_death() ->void:
 	
 	pass
+
+
+func _on_damage_detection_body_entered(body: Node2D) -> void:
+	health -=10
+	print(health)
