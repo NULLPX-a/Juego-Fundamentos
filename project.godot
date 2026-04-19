@@ -21,8 +21,6 @@ GeneralRules="*uid://bf2oej7k8egco"
 
 [display]
 
-window/size/viewport_width=648
-window/size/viewport_height=480
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
 
@@ -31,7 +29,6 @@ window/stretch/aspect="ignore"
 wall_jump=""
 portal=""
 virtual=""
-player=""
 
 [layer_names]
 

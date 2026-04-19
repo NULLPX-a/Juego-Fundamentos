@@ -13,8 +13,13 @@ var count_jumps: int = 0
 var double_jump: bool = false
 var ray_cast_dimesion = 10.5
 var direction
+var gotShuriken = false
 var block_nija = false
 var stuck_on_wall : bool = false
+
+@export var shuriken:PackedScene
+
+
 var dead = false:
 	set(value):
 		dead=value
@@ -46,6 +51,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and right_to_jump():
 		if count_jumps == 1:
 			double_jump = true
+			$audiodoublejump.play()
+		else:
+			$audiojump.play()
 		count_jumps += 1
 		velocity.y = JUMP_VELOCITY
 
@@ -72,6 +80,20 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	decide_animation()
 
+func _input(event):
+	if event.is_action_pressed("shuriken"): #Tecla F lo activa
+		if gotShuriken: return
+		gotShuriken = true
+		allow_animation = false
+		$animaciones.play("shuriken_launch")
+		var newShuriken = shuriken.instantiate()
+		newShuriken.position = self.position
+		newShuriken.isflip = $animaciones.flip_h
+		newShuriken.connect("shuriken_destroyed", _on_shuri_destroyed)
+		add_sibling(newShuriken)
+
+func _on_shuri_destroyed():
+	gotShuriken = false
 
 func _ready():
 	$animaciones.play("appear")
@@ -124,15 +146,16 @@ func right_to_jump():
 		had_jump = true
 		return true
 
+
 func collectFruit(fruitType):
 	var auxString = fruitType + "Points"
 	var _gainedPoints = GeneralRules[auxString]
 	fruitCount += _gainedPoints
-	print(fruitCount)
+	$audiodoublejump.play()
 
 
 func _on_animaciones_animation_finished() -> void:
-		allow_animation = true
+	allow_animation = true
 
 
 func _on_coyote_timer_timeout() -> void:
@@ -140,10 +163,11 @@ func _on_coyote_timer_timeout() -> void:
 
 
 func _on_damage_detection_area_shape_entered(_area_rid: RID, _area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
+	$audioDamage.play()
+	allow_animation = false
+	$animaciones.play("hit")
+	velocity.y = -250
 	health -= 10
-	print(health)
-	
-
 
 
 func trigger_death() ->void:

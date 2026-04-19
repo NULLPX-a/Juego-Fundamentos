@@ -6,13 +6,13 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-@warning_ignore("unused_parameter")
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	pass
 
 
-@warning_ignore("unused_parameter")
-func _on_activation_area_body_entered(body: Node2D) -> void:
+
+func _on_activation_area_body_entered(_body: Node2D) -> void:
+	$audioTrampolin.play()
 	$Animaciones_trampolin.play("launch")
-	body.velocity.y = -800
+	_body.velocity.y = -800
