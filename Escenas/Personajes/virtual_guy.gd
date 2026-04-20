@@ -175,6 +175,6 @@ func trigger_death() ->void:
 	pass
 
 
-func _on_damage_detection_body_entered(body: Node2D) -> void:
+func _on_damage_detection_body_entered(_body: Node2D) -> void:
 	health -=10
 	print(health)
