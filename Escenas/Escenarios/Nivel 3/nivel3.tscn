@@ -7,9 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://vttt8a8lxng4" path="res://Assets/Level3-bg/bg-l2.png" id="5_18v0w"]
 [ext_resource type="Texture2D" uid="uid://bab51wblvyemh" path="res://Assets/Level3-bg/bg-l3.png" id="6_bjh65"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u4ii"]
-size = Vector2(2417, 45)
-
 [node name="Nivel3" type="Node2D" unique_id=1458040108]
 
 [node name="Bg_lvl3" type="Node2D" parent="." unique_id=1397347425]
@@ -17,59 +14,52 @@ size = Vector2(2417, 45)
 [node name="Layer1" type="Parallax2D" parent="Bg_lvl3" unique_id=845837483]
 scroll_scale = Vector2(0.8, 0.8)
 repeat_size = Vector2(64, 128)
-repeat_times = 14
+repeat_times = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="Bg_lvl3/Layer1" unique_id=1488634706]
-position = Vector2(253, 19)
+position = Vector2(323, -128)
 texture = ExtResource("4_hv80x")
 centered = false
 
 [node name="Layer2" type="Parallax2D" parent="Bg_lvl3" unique_id=1938702386]
 scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(343, 2)
+scroll_offset = Vector2(80, -23)
 repeat_size = Vector2(64, 128)
-repeat_times = 25
+repeat_times = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="Bg_lvl3/Layer2" unique_id=15649032]
-position = Vector2(323, 45)
+position = Vector2(370, -103)
 texture = ExtResource("5_18v0w")
 centered = false
 
 [node name="Layer3" type="Parallax2D" parent="Bg_lvl3" unique_id=1025131089]
 scroll_scale = Vector2(0.2, 0.2)
-scroll_offset = Vector2(163, -87)
+scroll_offset = Vector2(80, -23)
 repeat_size = Vector2(64, 128)
-repeat_times = 16
+repeat_times = 27
 
 [node name="Sprite2D" type="Sprite2D" parent="Bg_lvl3/Layer3" unique_id=492933148]
-position = Vector2(286, -1)
+position = Vector2(401, -43)
 texture = ExtResource("6_bjh65")
 
 [node name="Escenario3" parent="." unique_id=1499020135 instance=ExtResource("1_r3ig4")]
 position = Vector2(2, 0)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1592712040]
-position = Vector2(64, -399.5)
+[node name="Camera2D2" type="Camera2D" parent="." unique_id=1592712040]
+position = Vector2(590, 2503.5)
 scale = Vector2(0.5, 0.5)
 limit_left = -800
-limit_right = 800
+limit_right = 1000
+limit_smoothed = true
 
 [node name="virtual_guy" parent="." unique_id=783472880 instance=ExtResource("2_3u4ii")]
-position = Vector2(64, -402)
+position = Vector2(590, 2501)
 scale = Vector2(1, 1)
+shuriken = null
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="virtual_guy" unique_id=550902062]
 position = Vector2(0, 2.5)
 scale = Vector2(0.5, 0.5)
-remote_path = NodePath("../../Camera2D")
+remote_path = NodePath("../../Camera2D2")
 
 [node name="PlayerInfo" parent="." unique_id=126177048 instance=ExtResource("3_3u4ii")]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1968905]
-visible = false
-position = Vector2(-2, -1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=727379624]
-visible = false
-position = Vector2(-628, 2749)
-shape = SubResource("RectangleShape2D_3u4ii")
