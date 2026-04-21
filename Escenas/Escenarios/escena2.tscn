@@ -1,6 +1,7 @@
-[gd_scene format=4 uid="uid://dwcd6e5m3rv4y"]
+[gd_scene format=4 uid="uid://dhdjil7tor61m"]
 
 [ext_resource type="Texture2D" uid="uid://b257dg1uf5k5h" path="res://Assets/Terrain/Terrain (16x16).png" id="1_f6puj"]
+[ext_resource type="PackedScene" uid="uid://bg2jsg2bbpdcl" path="res://next_level.tscn" id="7_12r4f"]
 [ext_resource type="Texture2D" uid="uid://bwddoivhg6wjh" path="res://Assets/Main Characters/Pink Man/Idle (32x32).png" id="11_cetv7"]
 [ext_resource type="PackedScene" uid="uid://dpyip8k15fp3q" path="res://Escenas/Personajes/virtual_guy.tscn" id="11_rsm0h"]
 [ext_resource type="PackedScene" uid="uid://g25hwnaqv54b" path="res://Escenas/Escenarios/Enemigos/Sierra.tscn" id="14_s7tp7"]
@@ -493,3 +494,8 @@ position = Vector2(5105, 441)
 
 [node name="Sierra22" parent="." unique_id=1077286183 instance=ExtResource("14_s7tp7")]
 position = Vector2(4775, 580)
+
+[node name="Next_level" parent="." unique_id=928218792 instance=ExtResource("7_12r4f")]
+position = Vector2(6428, 386)
+collision_layer = 17
+collision_mask = 17
