@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cpuh2td0c88fv" path="res://Escenas/Escenarios/Portal.tscn" id="10_iw5ls"]
 [ext_resource type="Script" uid="uid://cyrq2wily4gdg" path="res://Escenas/Pantallas/init_cut_scene_1.gd" id="11_7veke"]
 [ext_resource type="PackedScene" uid="uid://ydpd48mbajws" path="res://Escenas/Personajes/shuriken.tscn" id="14_aetoh"]
-[ext_resource type="PackedScene" uid="uid://bbxgrvk7m8ibr" path="res://Escenas/Personajes/new_ninja.tscn" id="14_nrf4t"]
+[ext_resource type="PackedScene" uid="uid://iambxelevmkp" path="res://Escenas/Personajes/new_ninja.tscn" id="14_nrf4t"]
 
 [sub_resource type="Curve2D" id="Curve2D_rw0ga"]
 _data = {
@@ -125,8 +125,8 @@ bus = &"MusicBus"
 script = ExtResource("2_aetoh")
 
 [node name="new_ninja" parent="." unique_id=1428114921 instance=ExtResource("14_nrf4t")]
-position = Vector2(1078, 301)
-scale = Vector2(2, 2)
+z_index = 2
+position = Vector2(3766, 509)
 
 [node name="TileMapLayer" parent="." unique_id=1256577616 instance=ExtResource("2_m2ho7")]
 

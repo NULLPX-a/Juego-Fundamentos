@@ -24,5 +24,5 @@ func on_escene_end(anim_name):
 		$AnimationPlayer.stop()
 		escena.queue_free()
 		$AnimationPlayer.play("to_transparent")
-		get_parent().get_node("virtual_guy").block_nija = false
+		get_parent().get_node("new_ninja").block_nija = false
 		get_parent().get_node("PlayerInfo").visible = true
