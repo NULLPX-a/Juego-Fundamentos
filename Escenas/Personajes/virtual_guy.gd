@@ -176,5 +176,8 @@ func trigger_death() ->void:
 
 
 func _on_damage_detection_body_entered(_body: Node2D) -> void:
-	health -=10
-	print(health)
+	$audioDamage.play()
+	allow_animation = false
+	$animaciones.play("hit")
+	velocity.y = -250
+	health -= 10

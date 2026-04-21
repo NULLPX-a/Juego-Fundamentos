@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://qa50g3agc2hg" path="res://Assets/Traps/Saw/On (38x38).png" id="1_bn04a"]
 [ext_resource type="Script" uid="uid://5rt6cglbv8ai" path="res://Escenas/Escenarios/Enemigos/sierra.gd" id="1_lfsw3"]
 [ext_resource type="Texture2D" uid="uid://b24de1ve0snjc" path="res://Assets/Main Characters/Desappearing (96x96).png" id="2_1xdd2"]
-[ext_resource type="Script" path="res://Escenas/Escenarios/Enemigos/Pinchos.gd" id="3_x8tnt"]
+[ext_resource type="Script" uid="uid://duos545yjvfky" path="res://Escenas/Escenarios/Enemigos/Pinchos.gd" id="3_x8tnt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u47pi"]
 atlas = ExtResource("2_1xdd2")
@@ -137,7 +137,6 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_zone" unique_id=1199510039]
 shape = SubResource("CircleShape2D_lfsw3")
-script = ExtResource("3_x8tnt")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="damage_zone" to="." method="_on_damage_zone_area_entered"]
