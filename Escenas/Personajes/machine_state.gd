@@ -40,3 +40,11 @@ func _on_damage_detection_area_shape_entered(_area_rid: RID, _area: Area2D, _are
 	animatedSprited2D.play("hit")
 	character.health -= 10
 	current_state.next_state = hurt_stake
+
+
+func _on_damage_detection_body_entered(body: Node2D) -> void:
+	audio_dmg.play()
+	character.velocity.y = -250
+	animatedSprited2D.play("hit")
+	character.health -= 10
+	current_state.next_state = hurt_stake
