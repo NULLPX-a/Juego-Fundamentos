@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://ydpd48mbajws"]
+
+[ext_resource type="Texture2D" uid="uid://dm77450rqh2q" path="res://Assets/Other/26.png" id="1_4puit"]
+[ext_resource type="Script" uid="uid://11fh2jlirxtt" path="res://Escenas/Personajes/shuriken.gd" id="1_cptag"]
+[ext_resource type="Texture2D" uid="uid://bqcg01b2ce7bh" path="res://Assets/Main Characters/Appearing (96x96).png" id="3_ka245"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptu8g"]
+atlas = ExtResource("3_ka245")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joyqo"]
+atlas = ExtResource("3_ka245")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yib2d"]
+atlas = ExtResource("3_ka245")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2diy8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4puit")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptu8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joyqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yib2d")
+}],
+"loop": false,
+"name": &"die",
+"speed": 11.0
+}]
+
+[sub_resource type="Animation" id="Animation_cptag"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shurikenSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_se4dl"]
+resource_name = "die"
+
+[sub_resource type="Animation" id="Animation_ka245"]
+resource_name = "rotation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shurikenSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rsi3u"]
+_data = {
+&"RESET": SubResource("Animation_cptag"),
+&"die": SubResource("Animation_se4dl"),
+&"rotation": SubResource("Animation_ka245")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ka245"]
+radius = 13.0
+
+[node name="shuriken" type="Node2D" unique_id=261274879]
+script = ExtResource("1_cptag")
+
+[node name="shurikenSprite" type="AnimatedSprite2D" parent="." unique_id=1942280035]
+scale = Vector2(0.021727912, 0.021727912)
+sprite_frames = SubResource("SpriteFrames_2diy8")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=8042840]
+libraries/ = SubResource("AnimationLibrary_rsi3u")
+autoplay = &"rotation"
+speed_scale = -3.0
+
+[node name="hitBox" type="Area2D" parent="." unique_id=1050428939 groups=["shuriken"]]
+collision_layer = 16
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox" unique_id=1389185954]
+shape = SubResource("CircleShape2D_ka245")
+
+[node name="Timer" type="Timer" parent="." unique_id=191771429]
+wait_time = 3.0
+
+[connection signal="animation_finished" from="shurikenSprite" to="." method="_on_shuriken_sprite_animation_finished"]
+[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

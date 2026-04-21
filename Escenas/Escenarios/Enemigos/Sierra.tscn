@@ -2,7 +2,24 @@
 
 [ext_resource type="Texture2D" uid="uid://qa50g3agc2hg" path="res://Assets/Traps/Saw/On (38x38).png" id="1_bn04a"]
 [ext_resource type="Script" uid="uid://5rt6cglbv8ai" path="res://Escenas/Escenarios/Enemigos/sierra.gd" id="1_lfsw3"]
+[ext_resource type="Texture2D" uid="uid://b24de1ve0snjc" path="res://Assets/Main Characters/Desappearing (96x96).png" id="2_1xdd2"]
 [ext_resource type="Script" uid="uid://duos545yjvfky" path="res://Escenas/Escenarios/Enemigos/Pinchos.gd" id="3_x8tnt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u47pi"]
+atlas = ExtResource("2_1xdd2")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfh8b"]
+atlas = ExtResource("2_1xdd2")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6muio"]
+atlas = ExtResource("2_1xdd2")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sifv0"]
+atlas = ExtResource("2_1xdd2")
+region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfsw3"]
 atlas = ExtResource("1_bn04a")
@@ -38,6 +55,23 @@ region = Rect2(266, 0, 38, 38)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u47pi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u47pi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfh8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6muio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sifv0")
+}],
+"loop": false,
+"name": &"die",
+"speed": 30.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lfsw3")
@@ -81,10 +115,10 @@ script = ExtResource("1_lfsw3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=13684700]
 sprite_frames = SubResource("SpriteFrames_u47pi")
-animation = &"on"
+animation = &"die"
 autoplay = "on"
-frame = 7
-frame_progress = 0.16529566
+frame = 3
+frame_progress = 1.0
 
 [node name="collision_with_floor" type="CollisionShape2D" parent="." unique_id=589160027]
 position = Vector2(0, -1.75)
@@ -103,4 +137,6 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_zone" unique_id=1199510039]
 shape = SubResource("CircleShape2D_lfsw3")
-script = ExtResource("3_x8tnt")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="damage_zone" to="." method="_on_damage_zone_area_entered"]

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://yfl31i4okyng"]
 
-[ext_resource type="PackedScene" uid="uid://dpyip8k15fp3q" path="res://Escenas/Personajes/virtual_guy.tscn" id="1_m2ho7"]
+[ext_resource type="AudioStream" uid="uid://c08wlmuhmuwav" path="res://Assets/sonidos/pixel-song-19-31953_junta.mp3" id="1_s0k8v"]
 [ext_resource type="PackedScene" uid="uid://bp5crs7c5kn45" path="res://Escenas/Escenarios/PlayerInfo.tscn" id="1_ti0p8"]
+[ext_resource type="Script" uid="uid://du5f2ohpcfyjh" path="res://Escenas/Pantallas/audio_fondo.gd" id="2_aetoh"]
 [ext_resource type="PackedScene" uid="uid://bri566k473ljw" path="res://Escenas/Escenarios/Escenario_1.tscn" id="2_m2ho7"]
 [ext_resource type="PackedScene" uid="uid://0efdipofhckf" path="res://Escenas/Fondos/Background.tscn" id="3_kdu8l"]
 [ext_resource type="PackedScene" uid="uid://ciuheb8xvwy8i" path="res://Escenas/Escenarios/movingPlatform_1.tscn" id="4_rw0ga"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dwu3b37uap01f" path="res://Escenas/Escenarios/fruit.tscn" id="8_bsgtc"]
 [ext_resource type="PackedScene" uid="uid://cpuh2td0c88fv" path="res://Escenas/Escenarios/Portal.tscn" id="10_iw5ls"]
 [ext_resource type="Script" uid="uid://cyrq2wily4gdg" path="res://Escenas/Pantallas/init_cut_scene_1.gd" id="11_7veke"]
+[ext_resource type="PackedScene" uid="uid://ydpd48mbajws" path="res://Escenas/Personajes/shuriken.tscn" id="14_aetoh"]
+[ext_resource type="PackedScene" uid="uid://bbxgrvk7m8ibr" path="res://Escenas/Personajes/new_ninja.tscn" id="14_nrf4t"]
 
 [sub_resource type="Curve2D" id="Curve2D_rw0ga"]
 _data = {
@@ -113,10 +116,17 @@ _data = {
 
 [node name="Node2D" type="Node2D" unique_id=98405551]
 
-[node name="PlayerInfo" parent="." unique_id=126177048 instance=ExtResource("1_ti0p8")]
+[node name="audio_fondo" type="AudioStreamPlayer" parent="." unique_id=85352366]
+process_mode = 3
+stream = ExtResource("1_s0k8v")
+volume_db = -15.0
+autoplay = true
+bus = &"MusicBus"
+script = ExtResource("2_aetoh")
 
-[node name="virtual_guy" parent="." unique_id=783472880 instance=ExtResource("1_m2ho7")]
-position = Vector2(4354, 250)
+[node name="new_ninja" parent="." unique_id=1428114921 instance=ExtResource("14_nrf4t")]
+position = Vector2(1078, 301)
+scale = Vector2(2, 2)
 
 [node name="TileMapLayer" parent="." unique_id=1256577616 instance=ExtResource("2_m2ho7")]
 
@@ -192,5 +202,12 @@ color = Color(0, 0, 0, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="init_cutScene1" unique_id=1360395961]
 libraries/ = SubResource("AnimationLibrary_nrf4t")
 
+[node name="shuriken" parent="." unique_id=261274879 instance=ExtResource("14_aetoh")]
+visible = false
+position = Vector2(4253, 149)
+
+[node name="PlayerInfo" parent="." unique_id=126177048 instance=ExtResource("1_ti0p8")]
+
+[connection signal="finished" from="audio_fondo" to="audio_fondo" method="_on_finished"]
 [connection signal="body_entered" from="init_cutScene1" to="init_cutScene1" method="_on_body_entered"]
 [connection signal="animation_finished" from="init_cutScene1/AnimationPlayer" to="init_cutScene1" method="_on_animation_player_animation_finished"]

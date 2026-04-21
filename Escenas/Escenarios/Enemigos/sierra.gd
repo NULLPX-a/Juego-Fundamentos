@@ -24,3 +24,13 @@ func _physics_process(delta):
 		$raycast_wall_detection.target_position.x *= -1
 	
 	move_and_slide()
+
+
+func _on_damage_zone_area_entered(_area: Area2D) -> void:
+	if _area.is_in_group("shuriken"):
+		velocity.x = 0
+		$AnimatedSprite2D.play("die")
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	self.queue_free()

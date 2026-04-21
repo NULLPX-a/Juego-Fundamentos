@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lkctlxwjkx0u" path="res://Escenas/Personajes/virtual_guy.gd" id="1_msqbo"]
 [ext_resource type="Texture2D" uid="uid://bqcg01b2ce7bh" path="res://Assets/Main Characters/Appearing (96x96).png" id="1_y3qxj"]
+[ext_resource type="PackedScene" uid="uid://ydpd48mbajws" path="res://Escenas/Personajes/shuriken.tscn" id="2_813rg"]
 [ext_resource type="Texture2D" uid="uid://b24de1ve0snjc" path="res://Assets/Main Characters/Desappearing (96x96).png" id="2_msqbo"]
 [ext_resource type="Texture2D" uid="uid://buk78xrbutpxd" path="res://Assets/Main Characters/Virtual Guy/Double Jump (32x32).png" id="3_e5yxn"]
 [ext_resource type="Texture2D" uid="uid://crlol2qwtyrpy" path="res://Assets/Main Characters/Virtual Guy/Hit (32x32).png" id="4_1n3oi"]
@@ -10,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dcb8op7qgvk7h" path="res://Assets/Main Characters/Virtual Guy/Jump (32x32).png" id="7_yaso0"]
 [ext_resource type="Texture2D" uid="uid://cu0fwu1drkkh5" path="res://Assets/Main Characters/Virtual Guy/Run (32x32).png" id="8_o7845"]
 [ext_resource type="Texture2D" uid="uid://du7jgmv8tre7g" path="res://Assets/Main Characters/Virtual Guy/Wall Jump (32x32).png" id="9_8m3fo"]
+[ext_resource type="AudioStream" uid="uid://bmprt572qaymx" path="res://Assets/sonidos/cartoon-jump-6462.mp3" id="11_2fym6"]
+[ext_resource type="AudioStream" uid="uid://di7yr4t3vwstc" path="res://Assets/sonidos/woo-hoo-82843.mp3" id="12_813rg"]
+[ext_resource type="AudioStream" uid="uid://dut0j2ltkj8yo" path="res://Assets/sonidos/homemadeoof-47509.mp3" id="13_yaso0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ihee"]
 atlas = ExtResource("1_y3qxj")
@@ -340,10 +344,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0uoml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck86v")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
-"speed": 12.0
+"speed": 29.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -442,6 +449,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ykthw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykthw")
+}],
+"loop": false,
+"name": &"shuriken_launch",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_blkm7")
 }, {
 "duration": 1.0,
@@ -475,10 +493,11 @@ z_index = 2
 scale = Vector2(2, 2)
 collision_layer = 16
 script = ExtResource("1_msqbo")
+shuriken = ExtResource("2_813rg")
 
 [node name="animaciones" type="AnimatedSprite2D" parent="." unique_id=231530499]
 sprite_frames = SubResource("SpriteFrames_4yg2y")
-animation = &"dissappear"
+animation = &"shuriken_launch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=556090110]
 position = Vector2(0, 3)
@@ -499,7 +518,7 @@ one_shot = true
 target_position = Vector2(11, 0)
 
 [node name="damage_detection" type="Area2D" parent="." unique_id=1907899392]
-collision_layer = 18
+collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_detection" unique_id=142770188]
@@ -514,6 +533,16 @@ position = Vector2(0, 12.75)
 shape = SubResource("RectangleShape2D_msqbo")
 debug_color = Color(0, 0, 0, 0.41960785)
 
+[node name="audiojump" type="AudioStreamPlayer2D" parent="." unique_id=1555601085]
+stream = ExtResource("11_2fym6")
+
+[node name="audiodoublejump" type="AudioStreamPlayer2D" parent="." unique_id=1998987879]
+stream = ExtResource("12_813rg")
+
+[node name="audioDamage" type="AudioStreamPlayer2D" parent="." unique_id=922303368]
+stream = ExtResource("13_yaso0")
+
 [connection signal="animation_finished" from="animaciones" to="." method="_on_animaciones_animation_finished"]
 [connection signal="timeout" from="coyote_timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="area_shape_entered" from="damage_detection" to="." method="_on_damage_detection_area_shape_entered"]
+[connection signal="body_entered" from="damage_detection" to="." method="_on_damage_detection_body_entered"]
