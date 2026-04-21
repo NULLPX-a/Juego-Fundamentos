@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var health = 100
+@onready var health = 100
 var fruitCount = 0
 var got_shuriken = false
 @export var animationes : AnimatedSprite2D
