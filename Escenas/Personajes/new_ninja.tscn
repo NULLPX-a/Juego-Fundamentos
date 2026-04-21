@@ -502,16 +502,17 @@ size = Vector2(2.5, 8.5)
 font_size = 8
 font_color = Color(0, 0, 0, 1)
 
-[node name="new_ninja" type="CharacterBody2D" unique_id=1428114921 node_paths=PackedStringArray("animationes", "machine_state", "rayCastWallJump")]
+[node name="new_ninja" type="CharacterBody2D" unique_id=1428114921 node_paths=PackedStringArray("animationes", "machine_state", "rayCastWallJump", "rayCastResbala")]
 collision_layer = 16
 script = ExtResource("1_ifeq8")
 animationes = NodePath("animaciones")
 machine_state = NodePath("machineState")
 rayCastWallJump = NodePath("rayCast_walljump")
+rayCastResbala = NodePath("detecta_resbala")
 
 [node name="animaciones" type="AnimatedSprite2D" parent="." unique_id=881966690]
 sprite_frames = SubResource("SpriteFrames_2gop1")
-animation = &"wall_jump"
+animation = &"jump_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=724059495]
 position = Vector2(0, 3)
@@ -523,6 +524,8 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="detecta_resbala" type="RayCast2D" parent="." unique_id=2063053955]
 
 [node name="rayCast_walljump" type="RayCast2D" parent="." unique_id=311919338]
 target_position = Vector2(12, 0)
@@ -546,12 +549,15 @@ debug_color = Color(0, 0, 0, 0.41960785)
 
 [node name="audiojump" type="AudioStreamPlayer2D" parent="." unique_id=579672637]
 stream = ExtResource("10_xlixr")
+bus = &"SoundsBus"
 
 [node name="audiodoublejump" type="AudioStreamPlayer2D" parent="." unique_id=1023513103]
 stream = ExtResource("11_f6nby")
+bus = &"SoundsBus"
 
 [node name="audioDamage" type="AudioStreamPlayer2D" parent="." unique_id=361417781]
 stream = ExtResource("12_hpgia")
+bus = &"SoundsBus"
 
 [node name="machineState" type="Node" parent="." unique_id=653911602 node_paths=PackedStringArray("character", "animatedSprited2D", "audio_dmg", "current_state", "hurt_stake")]
 script = ExtResource("14_3gnv3")

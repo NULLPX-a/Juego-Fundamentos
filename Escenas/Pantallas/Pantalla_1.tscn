@@ -117,15 +117,15 @@ _data = {
 [node name="Node2D" type="Node2D" unique_id=98405551]
 
 [node name="audio_fondo" type="AudioStreamPlayer" parent="." unique_id=85352366]
+process_mode = 3
 stream = ExtResource("1_s0k8v")
 volume_db = -15.0
 autoplay = true
+bus = &"MusicBus"
 script = ExtResource("2_aetoh")
 
-[node name="PlayerInfo" parent="." unique_id=126177048 instance=ExtResource("1_ti0p8")]
-
 [node name="new_ninja" parent="." unique_id=1428114921 instance=ExtResource("14_nrf4t")]
-position = Vector2(2106, 345)
+position = Vector2(1078, 301)
 scale = Vector2(2, 2)
 
 [node name="TileMapLayer" parent="." unique_id=1256577616 instance=ExtResource("2_m2ho7")]
@@ -205,6 +205,8 @@ libraries/ = SubResource("AnimationLibrary_nrf4t")
 [node name="shuriken" parent="." unique_id=261274879 instance=ExtResource("14_aetoh")]
 visible = false
 position = Vector2(4253, 149)
+
+[node name="PlayerInfo" parent="." unique_id=126177048 instance=ExtResource("1_ti0p8")]
 
 [connection signal="finished" from="audio_fondo" to="audio_fondo" method="_on_finished"]
 [connection signal="body_entered" from="init_cutScene1" to="init_cutScene1" method="_on_body_entered"]

@@ -34,7 +34,6 @@ func change_state(new_state : State):
 func _on_animaciones_animation_finished() -> void:
 	current_state.on_animatedSprite2D_anim_finish(animatedSprited2D.animation)
 
-
 func _on_damage_detection_area_shape_entered(_area_rid: RID, _area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	audio_dmg.play()
 	character.velocity.y = -250

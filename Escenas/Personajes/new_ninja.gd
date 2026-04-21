@@ -5,6 +5,7 @@ var got_shuriken = false
 @export var animationes : AnimatedSprite2D
 @export var machine_state : MachineState
 @export var rayCastWallJump : RayCast2D
+@export var rayCastResbala: RayCast2D
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	
@@ -13,9 +14,9 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction && machine_state.current_state.can_move:
-		velocity.x = direction * machine_state.current_state.get_SPEED()
+		velocity.x = move_toward(velocity.x, direction * machine_state.current_state.get_SPEED(), machine_state.current_state.get_delta_move_toward())
 	else:
-		velocity.x = move_toward(velocity.x, 0, machine_state.current_state.get_SPEED())
+		velocity.x = move_toward(velocity.x, 0, machine_state.current_state.get_delta_move_toward())
 
 	move_and_slide()
 	flip_or_not(direction)

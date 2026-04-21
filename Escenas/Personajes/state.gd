@@ -36,5 +36,8 @@ func get_JUMP_VELOCITY():
 func get_GRAVITY():
 	return GRAVITY
 
+func get_delta_move_toward():
+	return SPEED
+
 func on_animatedSprite2D_anim_finish(_anim_name):
 	pass
