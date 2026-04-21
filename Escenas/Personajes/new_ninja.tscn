@@ -11,19 +11,19 @@
 [ext_resource type="Texture2D" uid="uid://cu0fwu1drkkh5" path="res://Assets/Main Characters/Virtual Guy/Run (32x32).png" id="8_mbrqk"]
 [ext_resource type="Texture2D" uid="uid://du7jgmv8tre7g" path="res://Assets/Main Characters/Virtual Guy/Wall Jump (32x32).png" id="9_tt4x2"]
 [ext_resource type="AudioStream" uid="uid://bmprt572qaymx" path="res://Assets/sonidos/cartoon-jump-6462.mp3" id="10_xlixr"]
-[ext_resource type="Script" path="res://Escenas/Personajes/ray_cast_walljump.gd" id="11_2gop1"]
+[ext_resource type="Script" uid="uid://djphn182u6vqo" path="res://Escenas/Personajes/ray_cast_walljump.gd" id="11_2gop1"]
 [ext_resource type="AudioStream" uid="uid://di7yr4t3vwstc" path="res://Assets/sonidos/woo-hoo-82843.mp3" id="11_f6nby"]
 [ext_resource type="AudioStream" uid="uid://dut0j2ltkj8yo" path="res://Assets/sonidos/homemadeoof-47509.mp3" id="12_hpgia"]
 [ext_resource type="Script" uid="uid://d3nmc87rd7aa1" path="res://Escenas/Personajes/machine_state.gd" id="14_3gnv3"]
-[ext_resource type="Script" path="res://Escenas/Personajes/appearing_state.gd" id="15_6e1mx"]
-[ext_resource type="Script" path="res://Escenas/Personajes/ground_state.gd" id="16_cihhd"]
-[ext_resource type="Script" path="res://Escenas/Personajes/air_state.gd" id="17_wed7u"]
-[ext_resource type="Script" path="res://Escenas/Personajes/double_jump_state.gd" id="18_qmcuy"]
-[ext_resource type="Script" path="res://Escenas/Personajes/shuriken_launch_state.gd" id="19_mbrqk"]
+[ext_resource type="Script" uid="uid://wrm0kyqxpci6" path="res://Escenas/Personajes/appearing_state.gd" id="15_6e1mx"]
+[ext_resource type="Script" uid="uid://d021g7fl1txte" path="res://Escenas/Personajes/ground_state.gd" id="16_cihhd"]
+[ext_resource type="Script" uid="uid://dpqxpltck8oj2" path="res://Escenas/Personajes/air_state.gd" id="17_wed7u"]
+[ext_resource type="Script" uid="uid://busvxde56sm1e" path="res://Escenas/Personajes/double_jump_state.gd" id="18_qmcuy"]
+[ext_resource type="Script" uid="uid://cxuogbfeip6d8" path="res://Escenas/Personajes/shuriken_launch_state.gd" id="19_mbrqk"]
 [ext_resource type="PackedScene" uid="uid://ydpd48mbajws" path="res://Escenas/Personajes/shuriken.tscn" id="20_f6nby"]
-[ext_resource type="Script" path="res://Escenas/Personajes/debug_state.gd" id="20_tt4x2"]
-[ext_resource type="Script" path="res://Escenas/Personajes/hurt_stake.gd" id="20_xlixr"]
-[ext_resource type="Script" path="res://Escenas/Personajes/wall_jump_state.gd" id="22_hpgia"]
+[ext_resource type="Script" uid="uid://44bvaev6t05" path="res://Escenas/Personajes/debug_state.gd" id="20_tt4x2"]
+[ext_resource type="Script" uid="uid://c8pov055c8cip" path="res://Escenas/Personajes/hurt_stake.gd" id="20_xlixr"]
+[ext_resource type="Script" uid="uid://cn4e7u2pblx0n" path="res://Escenas/Personajes/wall_jump_state.gd" id="22_hpgia"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ihee"]
 atlas = ExtResource("1_vcfij")
@@ -502,7 +502,7 @@ size = Vector2(2.5, 8.5)
 font_size = 8
 font_color = Color(0, 0, 0, 1)
 
-[node name="new_ninja" type="CharacterBody2D" unique_id=1428114921 node_paths=PackedStringArray("animationes", "machine_state", "rayCastWallJump", "rayCastResbala")]
+[node name="new_ninja" type="CharacterBody2D" unique_id=1428114921 node_paths=PackedStringArray("animationes", "machine_state", "rayCastWallJump", "rayCastResbala") groups=["virtual"]]
 collision_layer = 16
 script = ExtResource("1_ifeq8")
 animationes = NodePath("animaciones")
@@ -612,6 +612,7 @@ audioJump = NodePath("../../audiojump")
 state_air = NodePath("../air_state")
 
 [node name="debugState" type="Label" parent="." unique_id=23963575 node_paths=PackedStringArray("machineState")]
+visible = false
 offset_left = -34.0
 offset_top = -40.0
 offset_right = 34.0
