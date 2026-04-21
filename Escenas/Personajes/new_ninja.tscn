@@ -503,6 +503,7 @@ font_size = 8
 font_color = Color(0, 0, 0, 1)
 
 [node name="new_ninja" type="CharacterBody2D" unique_id=1428114921 node_paths=PackedStringArray("animationes", "machine_state", "rayCastWallJump", "rayCastResbala") groups=["virtual"]]
+scale = Vector2(2, 2)
 collision_layer = 16
 script = ExtResource("1_ifeq8")
 animationes = NodePath("animaciones")
@@ -540,6 +541,8 @@ position = Vector2(0.5, 4)
 shape = SubResource("CapsuleShape2D_mmuwj")
 
 [node name="area_for_portal" type="Area2D" parent="." unique_id=1535718250]
+z_index = 2
+collision_layer = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_for_portal" unique_id=572670100]
 modulate = Color(1, 0.16078432, 0.16078432, 1)

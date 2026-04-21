@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var health = 100
 var fruitCount = 0
+var block_nija = false
 var got_shuriken = false
 @export var animationes : AnimatedSprite2D
 @export var machine_state : MachineState

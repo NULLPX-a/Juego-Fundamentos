@@ -125,8 +125,8 @@ bus = &"MusicBus"
 script = ExtResource("2_aetoh")
 
 [node name="new_ninja" parent="." unique_id=1428114921 instance=ExtResource("14_nrf4t")]
-position = Vector2(3936, 314)
-scale = Vector2(2, 2)
+z_index = 2
+position = Vector2(3766, 509)
 
 [node name="TileMapLayer" parent="." unique_id=1256577616 instance=ExtResource("2_m2ho7")]
 
