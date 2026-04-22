@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://cl41kvv1igb2p"]
+
+[ext_resource type="Script" uid="uid://1g7nqkb0k2kw" path="res://Escenas/Escenarios/pantalla_fin.gd" id="1_fog3a"]
+[ext_resource type="Texture2D" uid="uid://0aspha268sd4" path="res://Escenas/Fondos/minecraftbg.png" id="1_llor8"]
+[ext_resource type="Texture2D" uid="uid://dllyysihmmr8" path="res://Assets/Main Characters/Virtual Guy/Idle (32x32).png" id="2_ate5o"]
+[ext_resource type="Script" uid="uid://bv31hf23maeb3" path="res://Escenas/Escenarios/timer.gd" id="3_ate5o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fog3a"]
+atlas = ExtResource("2_ate5o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqjjl"]
+atlas = ExtResource("2_ate5o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsp2x"]
+atlas = ExtResource("2_ate5o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwn8n"]
+atlas = ExtResource("2_ate5o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68dxn"]
+atlas = ExtResource("2_ate5o")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5q77"]
+atlas = ExtResource("2_ate5o")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i228"]
+atlas = ExtResource("2_ate5o")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m441j"]
+atlas = ExtResource("2_ate5o")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0e70"]
+atlas = ExtResource("2_ate5o")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tvg5"]
+atlas = ExtResource("2_ate5o")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acoo5"]
+atlas = ExtResource("2_ate5o")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_30ikb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fog3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqjjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsp2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwn8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68dxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5q77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i228")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m441j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0e70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tvg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acoo5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0qg1i"]
+font_size = 249
+
+[node name="PantallaFin" type="Node2D" unique_id=1087141843]
+script = ExtResource("1_fog3a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=784512850]
+texture = ExtResource("1_llor8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1423606459]
+position = Vector2(-330, 48)
+scale = Vector2(8.125, 9.015624)
+sprite_frames = SubResource("SpriteFrames_30ikb")
+
+[node name="Label" type="Label" parent="." unique_id=1298134501]
+offset_top = -228.0
+offset_right = 556.0
+offset_bottom = 23.0
+text = "FIN"
+label_settings = SubResource("LabelSettings_0qg1i")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1559655543]
+
+[node name="Timer" type="Timer" parent="." unique_id=1529842133]
+wait_time = 10.0
+script = ExtResource("3_ate5o")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

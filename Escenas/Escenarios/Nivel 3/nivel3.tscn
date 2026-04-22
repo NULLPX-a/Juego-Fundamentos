@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://b73u3gkyg41j0"]
 
 [ext_resource type="PackedScene" uid="uid://bptn8a44klnqk" path="res://Escenas/Escenarios/Nivel 3/Escenario3.tscn" id="1_r3ig4"]
+[ext_resource type="AudioStream" uid="uid://drsa28r5q7n15" path="res://Assets/sonidos/untitled.mp3" id="2_asf38"]
 [ext_resource type="PackedScene" uid="uid://bp5crs7c5kn45" path="res://Escenas/Escenarios/PlayerInfo.tscn" id="3_3u4ii"]
+[ext_resource type="Script" path="res://Escenas/Pantallas/audio_fondo.gd" id="3_ikflx"]
 [ext_resource type="Texture2D" uid="uid://bbfivkehwukxe" path="res://Assets/Level3-bg/bg-l1.png" id="4_hv80x"]
 [ext_resource type="Texture2D" uid="uid://vttt8a8lxng4" path="res://Assets/Level3-bg/bg-l2.png" id="5_18v0w"]
 [ext_resource type="Texture2D" uid="uid://bab51wblvyemh" path="res://Assets/Level3-bg/bg-l3.png" id="6_bjh65"]
@@ -28,6 +30,14 @@ scale = Vector2(1, 1)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="new_ninja" unique_id=167261777]
 remote_path = NodePath("../../Camera2D2")
+
+[node name="audio_fondo" type="AudioStreamPlayer" parent="new_ninja" unique_id=742954880]
+process_mode = 3
+stream = ExtResource("2_asf38")
+volume_db = -15.0
+autoplay = true
+bus = &"MusicBus"
+script = ExtResource("3_ikflx")
 
 [node name="Bg_lvl3" type="Node2D" parent="." unique_id=1397347425]
 
@@ -81,4 +91,5 @@ script = ExtResource("8_bjh65")
 position = Vector2(260.5, 3523.75)
 shape = SubResource("RectangleShape2D_nhxdl")
 
+[connection signal="finished" from="new_ninja/audio_fondo" to="new_ninja/audio_fondo" method="_on_finished"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

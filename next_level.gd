@@ -10,7 +10,7 @@ func _on_body_entered(body: Node2D) -> void:
 		elif current_scene_file == "res://Escenas/Escenarios/escena2.tscn":
 			next_level_path = "res://Escenas/Escenarios/Nivel 3/nivel3.tscn"
 		elif current_scene_file == "res://Escenas/Escenarios/Nivel 3/nivel3.tscn":
-			next_level_path = "res://Escenas/Pantallas/escena1.tscn"
+			next_level_path = "res://Escenas/Escenarios/pantalla_fin.tscn"
 		
 		get_tree().change_scene_to_file(next_level_path)
 	#cambio de nivel
