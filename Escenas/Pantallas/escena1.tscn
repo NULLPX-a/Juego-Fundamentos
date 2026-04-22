@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dx755enhjde00"]
 
 [ext_resource type="AudioStream" uid="uid://c08wlmuhmuwav" path="res://Assets/sonidos/pixel-song-19-31953_junta.mp3" id="1_kqtdb"]
-[ext_resource type="Script" uid="uid://du5f2ohpcfyjh" path="res://Escenas/Pantallas/audio_fondo.gd" id="2_fbqed"]
+[ext_resource type="Script" path="res://Escenas/Pantallas/audio_fondo.gd" id="2_fbqed"]
 [ext_resource type="PackedScene" uid="uid://iambxelevmkp" path="res://Escenas/Personajes/new_ninja.tscn" id="3_7jjxd"]
 [ext_resource type="PackedScene" uid="uid://bri566k473ljw" path="res://Escenas/Escenarios/Escenario_1.tscn" id="4_wtnfh"]
 [ext_resource type="PackedScene" uid="uid://0efdipofhckf" path="res://Escenas/Fondos/Background.tscn" id="5_srqfb"]
@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://cyrq2wily4gdg" path="res://Escenas/Pantallas/init_cut_scene_1.gd" id="12_8dreg"]
 [ext_resource type="PackedScene" uid="uid://ydpd48mbajws" path="res://Escenas/Personajes/shuriken.tscn" id="13_3y15k"]
 [ext_resource type="PackedScene" uid="uid://bp5crs7c5kn45" path="res://Escenas/Escenarios/PlayerInfo.tscn" id="14_hm6ot"]
-[ext_resource type="PackedScene" path="res://next_level.tscn" id="15_qp3e5"]
+[ext_resource type="PackedScene" uid="uid://bg2jsg2bbpdcl" path="res://next_level.tscn" id="15_qp3e5"]
 
 [sub_resource type="Curve2D" id="Curve2D_rw0ga"]
 _data = {
