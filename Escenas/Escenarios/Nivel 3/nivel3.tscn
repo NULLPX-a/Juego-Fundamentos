@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bab51wblvyemh" path="res://Assets/Level3-bg/bg-l3.png" id="6_bjh65"]
 [ext_resource type="PackedScene" uid="uid://iambxelevmkp" path="res://Escenas/Personajes/new_ninja.tscn" id="7_18v0w"]
 [ext_resource type="PackedScene" uid="uid://bg2jsg2bbpdcl" path="res://next_level.tscn" id="7_bjh65"]
+[ext_resource type="Script" uid="uid://b3jkop4hwxvqk" path="res://Escenas/Escenarios/Nivel 3/area_2d.gd" id="8_bjh65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhxdl"]
+size = Vector2(2037, 26.5)
 
 [node name="Nivel3" type="Node2D" unique_id=1458040108]
 
@@ -67,3 +71,14 @@ collision_mask = 17
 position = Vector2(2, 0)
 
 [node name="PlayerInfo" parent="." unique_id=126177048 instance=ExtResource("3_3u4ii")]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1695829294]
+collision_layer = 17
+collision_mask = 17
+script = ExtResource("8_bjh65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1720414185]
+position = Vector2(260.5, 3523.75)
+shape = SubResource("RectangleShape2D_nhxdl")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
