@@ -35,3 +35,5 @@ func collectFruit(fruitType):
 	var _gainedPoints = GeneralRules[auxString]
 	fruitCount += _gainedPoints
 	$audiodoublejump.play()
+	
+	
