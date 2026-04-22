@@ -29,3 +29,9 @@ func flip_or_not(direction):
 	elif  direction > 0:
 		animationes.flip_h = false
 		rayCastWallJump.ray_flip = false
+
+func collectFruit(fruitType):
+	var auxString = fruitType + "Points"
+	var _gainedPoints = GeneralRules[auxString]
+	fruitCount += _gainedPoints
+	$audiodoublejump.play()
