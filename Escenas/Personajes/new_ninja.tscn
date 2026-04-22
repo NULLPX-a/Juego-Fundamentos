@@ -628,6 +628,8 @@ autowrap_mode = 3
 script = ExtResource("20_tt4x2")
 machineState = NodePath("../machineState")
 
+[node name="nextlevel" type="Area2D" parent="." unique_id=1087832540]
+
 [connection signal="animation_finished" from="animaciones" to="machineState" method="_on_animaciones_animation_finished"]
 [connection signal="area_shape_entered" from="damage_detection" to="machineState" method="_on_damage_detection_area_shape_entered"]
 [connection signal="body_entered" from="damage_detection" to="machineState" method="_on_damage_detection_body_entered"]
