@@ -29,3 +29,6 @@ func flip_or_not(direction):
 	elif  direction > 0:
 		animationes.flip_h = false
 		rayCastWallJump.ray_flip = false
+
+	
+	
