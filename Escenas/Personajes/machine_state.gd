@@ -40,6 +40,8 @@ func _on_damage_detection_area_shape_entered(_area_rid: RID, _area: Area2D, _are
 	animatedSprited2D.play("hit")
 	character.health -= 10
 	current_state.next_state = hurt_stake
+	if character.health<=0:
+		get_tree().reload_current_scene()
 
 
 func _on_damage_detection_body_entered(body: Node2D) -> void:
@@ -48,3 +50,5 @@ func _on_damage_detection_body_entered(body: Node2D) -> void:
 	animatedSprited2D.play("hit")
 	character.health -= 10
 	current_state.next_state = hurt_stake
+	if character.health<=0:
+		get_tree().reload_current_scene()

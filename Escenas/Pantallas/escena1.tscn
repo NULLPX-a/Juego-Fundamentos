@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://yfl31i4okyng"]
+[gd_scene format=3 uid="uid://dx755enhjde00"]
 
 [ext_resource type="AudioStream" uid="uid://c08wlmuhmuwav" path="res://Assets/sonidos/pixel-song-19-31953_junta.mp3" id="1_kqtdb"]
-[ext_resource type="Script" path="res://Escenas/Pantallas/audio_fondo.gd" id="2_fbqed"]
+[ext_resource type="Script" uid="uid://du5f2ohpcfyjh" path="res://Escenas/Pantallas/audio_fondo.gd" id="2_fbqed"]
 [ext_resource type="PackedScene" uid="uid://iambxelevmkp" path="res://Escenas/Personajes/new_ninja.tscn" id="3_7jjxd"]
 [ext_resource type="PackedScene" uid="uid://bri566k473ljw" path="res://Escenas/Escenarios/Escenario_1.tscn" id="4_wtnfh"]
 [ext_resource type="PackedScene" uid="uid://0efdipofhckf" path="res://Escenas/Fondos/Background.tscn" id="5_srqfb"]
@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://cyrq2wily4gdg" path="res://Escenas/Pantallas/init_cut_scene_1.gd" id="12_8dreg"]
 [ext_resource type="PackedScene" uid="uid://ydpd48mbajws" path="res://Escenas/Personajes/shuriken.tscn" id="13_3y15k"]
 [ext_resource type="PackedScene" uid="uid://bp5crs7c5kn45" path="res://Escenas/Escenarios/PlayerInfo.tscn" id="14_hm6ot"]
-[ext_resource type="PackedScene" uid="uid://bg2jsg2bbpdcl" path="res://next_level.tscn" id="15_qp3e5"]
+[ext_resource type="PackedScene" path="res://next_level.tscn" id="15_qp3e5"]
 
 [sub_resource type="Curve2D" id="Curve2D_rw0ga"]
 _data = {
@@ -115,6 +115,9 @@ _data = {
 &"to_transparent": SubResource("Animation_aetoh")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_kqtdb"]
+font_size = 30
+
 [node name="Node2D" type="Node2D" unique_id=98405551]
 
 [node name="audio_fondo" type="AudioStreamPlayer" parent="." unique_id=85352366]
@@ -127,7 +130,7 @@ script = ExtResource("2_fbqed")
 
 [node name="new_ninja" parent="." unique_id=1428114921 instance=ExtResource("3_7jjxd")]
 z_index = 2
-position = Vector2(3766, 509)
+position = Vector2(1032, 308)
 
 [node name="TileMapLayer" parent="." unique_id=1256577616 instance=ExtResource("4_wtnfh")]
 
@@ -210,9 +213,112 @@ position = Vector2(4253, 149)
 [node name="PlayerInfo" parent="." unique_id=126177048 instance=ExtResource("14_hm6ot")]
 
 [node name="Next_level" parent="." unique_id=928218792 instance=ExtResource("15_qp3e5")]
-position = Vector2(5685, 264)
+top_level = true
+position = Vector2(5467, 270)
 collision_layer = 17
 collision_mask = 17
+
+[node name="fruit3" parent="." unique_id=904770838 instance=ExtResource("10_ic7ok")]
+position = Vector2(1816, 521)
+fruitType = "banana"
+
+[node name="fruit4" parent="." unique_id=918966623 instance=ExtResource("10_ic7ok")]
+position = Vector2(1751, 522)
+
+[node name="Sierra2" parent="." unique_id=1236322054 instance=ExtResource("7_42iqn")]
+position = Vector2(2238, 169)
+
+[node name="Sierra3" parent="." unique_id=1982558655 instance=ExtResource("7_42iqn")]
+position = Vector2(1952, 168)
+
+[node name="fruit5" parent="." unique_id=955889943 instance=ExtResource("10_ic7ok")]
+position = Vector2(1428, 533)
+
+[node name="fruit6" parent="." unique_id=346192988 instance=ExtResource("10_ic7ok")]
+position = Vector2(1472, 496)
+fruitType = "banana"
+
+[node name="fruit7" parent="." unique_id=1535808431 instance=ExtResource("10_ic7ok")]
+position = Vector2(1553, 478)
+
+[node name="fruit8" parent="." unique_id=1516649964 instance=ExtResource("10_ic7ok")]
+position = Vector2(1634, 491)
+fruitType = "banana"
+
+[node name="fruit9" parent="." unique_id=367826429 instance=ExtResource("10_ic7ok")]
+position = Vector2(1696, 524)
+
+[node name="fruit10" parent="." unique_id=206352834 instance=ExtResource("10_ic7ok")]
+position = Vector2(569, 428)
+fruitType = "banana"
+
+[node name="fruit11" parent="." unique_id=2094785469 instance=ExtResource("10_ic7ok")]
+position = Vector2(635, 310)
+fruitType = "banana"
+
+[node name="fruit12" parent="." unique_id=1108788661 instance=ExtResource("10_ic7ok")]
+position = Vector2(704, 220)
+fruitType = "banana"
+
+[node name="fruit13" parent="." unique_id=1441379070 instance=ExtResource("10_ic7ok")]
+position = Vector2(3026, 399)
+
+[node name="fruit14" parent="." unique_id=2089380229 instance=ExtResource("10_ic7ok")]
+position = Vector2(3595, 344)
+
+[node name="fruit15" parent="." unique_id=1499490421 instance=ExtResource("10_ic7ok")]
+position = Vector2(4154, 521)
+
+[node name="fruit16" parent="." unique_id=1394024918 instance=ExtResource("10_ic7ok")]
+position = Vector2(4225, 520)
+
+[node name="fruit17" parent="." unique_id=1885191942 instance=ExtResource("10_ic7ok")]
+position = Vector2(4302, 520)
+
+[node name="fruit18" parent="." unique_id=1615720271 instance=ExtResource("10_ic7ok")]
+position = Vector2(4380, 521)
+
+[node name="fruit19" parent="." unique_id=1985329411 instance=ExtResource("10_ic7ok")]
+position = Vector2(4459, 519)
+
+[node name="fruit20" parent="." unique_id=2018078543 instance=ExtResource("10_ic7ok")]
+position = Vector2(2376, 441)
+
+[node name="fruit21" parent="." unique_id=1073203701 instance=ExtResource("10_ic7ok")]
+position = Vector2(2376, 386)
+
+[node name="fruit22" parent="." unique_id=482033499 instance=ExtResource("10_ic7ok")]
+position = Vector2(2378, 332)
+
+[node name="fruit23" parent="." unique_id=678891999 instance=ExtResource("10_ic7ok")]
+position = Vector2(2374, 270)
+
+[node name="fruit24" parent="." unique_id=1031553216 instance=ExtResource("10_ic7ok")]
+position = Vector2(771, 332)
+
+[node name="fruit25" parent="." unique_id=1845544585 instance=ExtResource("10_ic7ok")]
+position = Vector2(834, 436)
+
+[node name="Label" type="Label" parent="." unique_id=1435762430]
+offset_left = -334.0
+offset_top = 85.0
+offset_right = 407.0
+offset_bottom = 152.0
+text = "BIENVENIDO A CATCHOS
+\"SOBREVIVE SI PUEDES\""
+label_settings = SubResource("LabelSettings_kqtdb")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1029315420]
+visible = false
+offset_left = -306.0
+offset_top = 242.0
+offset_right = 435.0
+offset_bottom = 329.0
+text = "BIENVENIDO A CATCHOS
+\"SOBREVIVE SI PUEDES\""
+label_settings = SubResource("LabelSettings_kqtdb")
+horizontal_alignment = 1
 
 [connection signal="finished" from="audio_fondo" to="audio_fondo" method="_on_finished"]
 [connection signal="body_entered" from="init_cutScene1" to="init_cutScene1" method="_on_body_entered"]

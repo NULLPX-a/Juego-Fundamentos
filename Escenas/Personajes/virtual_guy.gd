@@ -168,10 +168,12 @@ func _on_damage_detection_area_shape_entered(_area_rid: RID, _area: Area2D, _are
 	$animaciones.play("hit")
 	velocity.y = -250
 	health -= 10
+	if health<=0:
+		health = 100
+		get_tree().reload_current_scene()
 
 
 func trigger_death() ->void:
-	
 	pass
 
 
